@@ -14,7 +14,7 @@ func IssueJWTFromPEM(key *rsa.PrivateKey) string {
 	claims := &jwt.StandardClaims{
 		IssuedAt:  time.Now().Add(-1 * time.Minute).Unix(),
 		ExpiresAt: time.Now().Add(time.Minute * 10).Unix(),
-		Issuer:    "138897",
+		Issuer:    appID,
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodRS256, claims)
