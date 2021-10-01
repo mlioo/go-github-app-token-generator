@@ -30,7 +30,7 @@ var (
 
 func GetInstallationToken(token string) (*string, error) {
 
-	u := strings.Join([]string{githubURL, appID, "access_tokens"}, "/")
+	u := strings.Join([]string{githubURL, appInstId, "access_tokens"}, "/")
 
 	var resBody struct {
 		Token       string    `json:"token"`

@@ -16,6 +16,7 @@ runs:
   args:
     - ${{ inputs.app-private-key }}
     - ${{ inputs.app-id }}
+    - ${{ inputs.app-installation-id }}
 author: mlioo
 branding:
   icon: zap

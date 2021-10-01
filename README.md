@@ -4,7 +4,7 @@ There are a lot of other workflows that do the same thing, go use them instead. 
 
 # Setup
 
-This actions requires two secrets two be set, `APP_PRIVATE_KEY` and `APP_ID` as inputs to this workflow. The `APP_PRIVATE_KEY` should be base64 encoded then set as an environment variable.
+This actions requires three secrets two be set, `APP_PRIVATE_KEY`, `APP_ID` ,and `APP_INSTALLATION_ID` as inputs to this workflow. The `APP_PRIVATE_KEY` should be base64 encoded then set as an environment variable.
 
 ## Usage
 
@@ -20,6 +20,7 @@ jobs:
       with:
         app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
         app-id: ${{ secrets.APP_ID }}
+        app-installation-id: ${{ secrets.APP_INSTALLATION_ID}}
     - name: Check out an other repo
       uses: actions/checkout@v2
       with:

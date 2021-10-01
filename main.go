@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	appID string
+	appID, appInstId string
 )
 
 func main() {
@@ -27,6 +27,12 @@ func main() {
 		return
 	}
 
+	appID, ok = os.LookupEnv("APP_INSTALLATION_ID")
+	if !ok {
+		fmt.Printf("::error title=App installation ID not set::App installation ID envrionment var is not set")
+		return
+	}
+
 	pemBytes, err := base64.StdEncoding.DecodeString(b)
 	if err != nil {
 		fmt.Printf("::error title=Base64 decode failed::PEM secret should be base64 encoded")
@@ -40,6 +46,8 @@ func main() {
 	}
 
 	jwt := IssueJWTFromPEM(key)
+
+	fmt.Println(jwt)
 
 	token, err := GetInstallationToken(jwt)
 	if err != nil {
